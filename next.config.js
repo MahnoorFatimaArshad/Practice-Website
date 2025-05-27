@@ -2,22 +2,15 @@
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true,
-    domains: ['localhost'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
+    unoptimized: true
   },
-  swcMinify: true,
+  trailingSlash: true,
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true
   }
-};
+}
 
-module.exports = nextConfig; 
+module.exports = nextConfig 
