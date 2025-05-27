@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Discription() {
   return (
-    <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-14 md:py-20 bg-white mt-16">
+    <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-14 md:py-20 bg-white mt-18">
       {/* Top Intro Text */}
       <p className="text-xl sm:text-lg md:text-xl text-black mt-16 mb-4 font-bold">
         Welcome to Our Platform
