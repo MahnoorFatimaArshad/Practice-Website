@@ -9,54 +9,91 @@ import Navbar from '../Components/Navbar'
 export default function HeroSection() {
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-700 to-white/90 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
         <Navbar />
       </header>
 
-      <section className="bg-gradient-to-r from-blue-700 to-white pt-40 px-6 pb-16">
-        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
-          
-          <div className="w-full md:w-1/2 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-              Build Your Dream Website
-            </h1>
-            <p className="text-white/80 text-lg mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut eligendi soluta dignissimos eum, incidunt amet maiores sit cum repellendus ea quas quasi neque totam sed ab voluptatem numquam alias nam.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-8">
-              <Link href="/get-started">
-                <button className="bg-white text-blue-700 px-6 py-3 rounded-xl hover:bg-black hover:text-white transition">
-                  Get Started
-                </button>
-              </Link>
-              <Link href="/learn-more">
-                <button className="flex items-center gap-2 border border-white text-white px-6 py-3 rounded-xl hover:bg-white hover:text-blue-700 transition">
-                  Learn More <ArrowRight size={20} />
-                </button>
-              </Link>
+      <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
+        
+        <div className="relative pt-28 lg:pt-36 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-center lg:text-left"
+              >
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
+                  Build Your Dream
+                  <span className="text-blue-600"> Website</span>
+                </h1>
+                <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl">
+                  Create stunning, responsive websites with our powerful tools and templates. 
+                  Start building your online presence today.
+                </p>
+                <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Link href="/get-started">
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-medium hover:bg-blue-700 transition-colors"
+                    >
+                      Get Started
+                    </motion.button>
+                  </Link>
+                  <Link href="/learn-more">
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-xl text-lg font-medium border-2 border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors"
+                    >
+                      Learn More <ArrowRight className="w-5 h-5" />
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <motion.div
+                  animate={{ y: [0, 15, 0] }}
+                  transition={{
+                    duration: 4,
+                    ease: 'easeInOut',
+                    repeat: Infinity,
+                  }}
+                  className="relative z-10"
+                >
+                  <Image
+                    src="/images/spin.jpg"
+                    alt="Hero Image"
+                    width={600}
+                    height={400}
+                    className="rounded-2xl shadow-2xl"
+                    priority
+                  />
+                </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl filter blur-3xl -z-10 transform scale-95" />
+              </motion.div>
             </div>
           </div>
-
-          <motion.div
-            className="w-full md:w-1/2 mb-10 md:mb-0"
-            animate={{ y: [0, 20, 0] }}
-            transition={{
-              duration: 4,
-              ease: 'easeInOut',
-              repeat: Infinity,
-            }}
-          >
-            <Image
-              src="/images/spin.jpg"
-              alt="Travel Image"
-              width={600}
-              height={400}
-              className="mx-auto rounded-xl shadow-lg"
-              priority
-            />
-          </motion.div>
         </div>
       </section>
     </>
   )
 }
+
+// Add this to your globals.css
+/*
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+*/

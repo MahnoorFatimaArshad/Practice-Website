@@ -9,15 +9,19 @@ import Footer from './Components/Footer'
 
 function Home() {
   return (
-    <div className="min-h-screen w-full bg-white overflow-x-hidden">
-      <Hero />
-      <Companies/>
-      <Discription/>
-      <PriceSection/>
-      <UsersSay/>
-      <TodayOffer/>
-      <Footer/>
-    </div>
+    <main className="min-h-screen w-full bg-white overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Hero />
+        <div className="space-y-24 py-16">
+          <Companies />
+          <Discription />
+          <PriceSection />
+          <UsersSay />
+          <TodayOffer />
+        </div>
+      </div>
+      <Footer />
+    </main>
   )
 }
 
