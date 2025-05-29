@@ -1,36 +1,77 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-export default function Discription() {
+export default function Description() {
   return (
-    <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-14 md:py-20 bg-white mt-18">
-      {/* Top Intro Text */}
-      <p className="text-xl sm:text-lg md:text-xl text-black mt-16 mb-4 font-bold">
-        Welcome to Our Platform
-      </p>
+    <section className="py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg font-semibold text-blue-600 mb-4"
+          >
+            Welcome to Our Platform
+          </motion.p>
 
-      {/* 2-Line Title */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug mb-8">
-        <span className="block text-black mt-2">Lorem ipsum</span>
-        <span className="block text-blue-600 mt-2">Lorem ipsum Lorem</span>
-      </h1>
+          {/* Title */}
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-8"
+          >
+            <span className="block">Transform Your Ideas</span>
+            <span className="block text-blue-600 mt-2">Into Reality</span>
+          </motion.h2>
 
-      {/* Paragraph */}
-      <p className="text-sm sm:text-base md:text-lg text-gray-800 max-w-2xl mb-8">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime exercitationem
-        praesentium, enim magnam modi odit aliquid numquam et unde rem voluptatem est esse
-        autem amet voluptate iusto delectus eaque ratione.
-      </p>
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto mb-12"
+          >
+            Create stunning websites and applications with our powerful platform.
+            We provide the tools and resources you need to bring your vision to life.
+          </motion.p>
 
-      {/* Large Responsive Image */}
-      <div className="w-full flex justify-center bg-blue-100 mt-4">
-        <img
-          src="/images/DiscriptionPic.jpeg"
-          alt="Technology Illustration"
-          className="w-full max-w-6xl h-auto object-contain mt-6 px-4"
-        />
+          {/* Image Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8 }}
+            className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-blue-50 to-white p-4 sm:p-8"
+          >
+            <div className="aspect-[16/9] relative">
+              <Image
+                src="/images/DiscriptionPic.jpeg"
+                alt="Platform Features"
+                fill
+                className="object-cover rounded-xl shadow-2xl"
+                priority
+              />
+            </div>
+            {/* Decorative Elements */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl filter blur-3xl -z-10" />
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

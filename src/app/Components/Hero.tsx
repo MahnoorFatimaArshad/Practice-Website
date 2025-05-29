@@ -89,11 +89,3 @@ export default function HeroSection() {
   )
 }
 
-// Add this to your globals.css
-/*
-.bg-grid-pattern {
-  background-image: linear-gradient(to right, #e5e7eb 1px, transparent 1px),
-    linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-*/
